@@ -1,0 +1,316 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap');
+@import 'tailwindcss';
+
+@theme inline {
+  --font-sans: 'Nunito', sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body, #root { height: 100%; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background: #f8f0ff;
+  color: #1a1a2e;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar { width: 3px; height: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #e9d5ff; border-radius: 99px; }
+
+/* ── Animations ── */
+@keyframes floatUp {
+  0%   { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-120px) scale(0.4); opacity: 0; }
+}
+@keyframes gentleFloat {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.85); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes heartBeat {
+  0%  { transform: scale(1); }
+  25% { transform: scale(1.3); }
+  50% { transform: scale(0.95); }
+  75% { transform: scale(1.1); }
+  100%{ transform: scale(1); }
+}
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+@keyframes slideInRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+@keyframes slideOutLeft {
+  from { transform: translateX(0);     opacity: 1; }
+  to   { transform: translateX(-100%); opacity: 0; }
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.7); }
+}
+@keyframes dotPulse {
+  0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+  40%            { transform: scale(1);   opacity: 1; }
+}
+@keyframes msgSlideInRight {
+  from { opacity: 0; transform: translateX(16px) scale(0.95); }
+  to   { opacity: 1; transform: translateX(0) scale(1); }
+}
+@keyframes msgSlideInLeft {
+  from { opacity: 0; transform: translateX(-16px) scale(0.95); }
+  to   { opacity: 1; transform: translateX(0) scale(1); }
+}
+@keyframes typingBounce {
+  0%, 60%, 100% { transform: translateY(0); }
+  30%            { transform: translateY(-5px); }
+}
+@keyframes waveBar {
+  0%, 100% { transform: scaleY(0.35); }
+  50%       { transform: scaleY(1); }
+}
+@keyframes reactionPop {
+  0%   { transform: scale(0) rotate(-15deg); opacity: 0; }
+  70%  { transform: scale(1.2) rotate(5deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+@keyframes slideUpSheet {
+  from { transform: translateY(100%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+@keyframes recordPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(236,72,153,0.6); }
+  50%       { box-shadow: 0 0 0 10px rgba(236,72,153,0); }
+}
+
+.msg-in-right  { animation: msgSlideInRight 0.22s ease-out both; }
+.msg-in-left   { animation: msgSlideInLeft  0.22s ease-out both; }
+.reaction-pop  { animation: reactionPop 0.3s cubic-bezier(.34,1.56,.64,1) both; }
+.sheet-up      { animation: slideUpSheet 0.3s cubic-bezier(.32,.72,0,1) both; }
+
+.animate-float      { animation: gentleFloat 3s ease-in-out infinite; }
+.animate-fadeinup   { animation: fadeInUp 0.5s ease-out both; }
+.animate-fadein     { animation: fadeIn 0.4s ease-out both; }
+.animate-scalein    { animation: scaleIn 0.4s ease-out both; }
+.animate-heartbeat  { animation: heartBeat 0.4s ease-in-out; }
+.animate-twinkle    { animation: twinkle 2s ease-in-out infinite; }
+
+.shimmer-card {
+  background: linear-gradient(90deg, #f3e8ff 0%, #fce7f3 50%, #f3e8ff 100%);
+  background-size: 800px 100%;
+  animation: shimmer 1.5s infinite linear;
+}
+
+/* Glassmorphism */
+.glass {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #a855f7, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Story ring gradient */
+.story-ring {
+  background: linear-gradient(45deg, #f9a8d4, #c084fc, #818cf8);
+  padding: 2.5px;
+  border-radius: 999px;
+}
+.story-ring-seen {
+  background: #e5e7eb;
+  padding: 2.5px;
+  border-radius: 999px;
+}
+
+
+/* ================================
+   ZINGOO VIBEY BACKGROUND ANIMATIONS
+   ================================ */
+
+.vibe-float {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  animation: vibeFloat 6s ease-in-out infinite;
+}
+
+/* Hearts */
+.vibe-heart {
+  color: rgba(236, 72, 153, 0.35);
+  font-size: 70px;
+  text-shadow: 0 0 20px rgba(236, 72, 153, 0.2);
+}
+
+.vibe-1 {
+  left: 17%;
+  top: 22%;
+  animation-delay: 0s;
+}
+
+.vibe-2 {
+  right: 17%;
+  top: 42%;
+  font-size: 55px;
+  animation-delay: 2s;
+}
+
+.vibe-3 {
+  left: 22%;
+  bottom: 15%;
+  font-size: 48px;
+  animation-delay: 4s;
+}
+
+/* Stars */
+.vibe-star {
+  color: rgba(168, 85, 247, 0.5);
+  font-size: 42px;
+  text-shadow: 0 0 15px rgba(168, 85, 247, 0.25);
+}
+
+.star-1 {
+  left: 14%;
+  top: 12%;
+  animation-delay: 1s;
+}
+
+.star-2 {
+  right: 14%;
+  top: 18%;
+  animation-delay: 3s;
+}
+
+.star-3 {
+  left: 24%;
+  top: 65%;
+  font-size: 30px;
+  animation-delay: 1.5s;
+}
+
+.star-4 {
+  right: 23%;
+  bottom: 18%;
+  font-size: 34px;
+  animation-delay: 4s;
+}
+
+/* Cute clouds */
+.vibe-cloud {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 75px;
+  filter: drop-shadow(0 5px 15px rgba(168, 85, 247, 0.12));
+  animation: cloudFloat 9s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.cloud-1 {
+  left: 13%;
+  top: 43%;
+  animation-delay: 1s;
+}
+
+.cloud-2 {
+  right: 12%;
+  top: 68%;
+  font-size: 60px;
+  animation-delay: 4s;
+}
+
+/* Tiny sparkles */
+.sparkle {
+  position: absolute;
+  color: rgba(236, 72, 153, 0.45);
+  font-size: 22px;
+  animation: sparkle 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.sparkle-1 {
+  left: 19%;
+  top: 35%;
+  animation-delay: 0.5s;
+}
+
+.sparkle-2 {
+  right: 20%;
+  top: 30%;
+  animation-delay: 1.5s;
+}
+
+.sparkle-3 {
+  left: 27%;
+  bottom: 28%;
+  animation-delay: 2.5s;
+}
+
+.sparkle-4 {
+  right: 27%;
+  bottom: 35%;
+  animation-delay: 3.5s;
+}
+
+/* Floating movement */
+@keyframes vibeFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-4deg);
+  }
+
+  50% {
+    transform: translateY(-18px) rotate(4deg);
+  }
+}
+
+/* Cloud movement */
+@keyframes cloudFloat {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(12px, -12px);
+  }
+}
+
+/* Sparkle animation */
+@keyframes sparkle {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.8) rotate(0deg);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.25) rotate(20deg);
+  }
+}

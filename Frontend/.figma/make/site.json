@@ -1,0 +1,10 @@
+{
+  "description": "Connect and share moments with a friendly, playful platform designed to bring people together through fun and engaging social interactions.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
