@@ -3,6 +3,10 @@ import { useNavigate } from 'react-router'
 import { STORIES, ME, type Post, type Story } from '../data/mock'
 import { ZingooMark } from '../components/Logo'
 
+const API_BASE_URL = (
+  import.meta.env.VITE_API_URL || 'https://zingoo-backend.onrender.com'
+).replace(/\/$/, '')
+
 const REACTIONS = ['❤️', '💖', '🥹', '✨', '🌸', '😍', '🔥']
 
 export default function FeedPage() {
@@ -14,7 +18,7 @@ export default function FeedPage() {
   const navigate = useNavigate()
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/posts')
+    fetch(`${API_BASE_URL}/api/posts`)
       .then(res => res.json())
       .then(result => {
         if (result.success) {
